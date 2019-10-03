@@ -44,7 +44,7 @@ public class TestBase {
 	
 	public static void initialization() throws MalformedURLException {
 		String browserName = prop.getProperty("browser");
-		/*if(browserName.equals("chrome")) {
+		if(browserName.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver", "/Users/ramana/Downloads/chromedriver");
 			driver = new ChromeDriver();
 			log.info("Chrome driver initialised");
@@ -52,28 +52,9 @@ public class TestBase {
 			System.setProperty("webdriver.gecko.driver", "/Users/ramana/Downloads/geckodriver");
 			driver = new FirefoxDriver();
 			log.info("FF driver initialised");
-		} */
+		} 
 		
-		//String host = "localhost";
-		DesiredCapabilities dc = DesiredCapabilities.chrome();
-		
-		/*if(System.getProperty("BROWSER") != null && 
-				System.getProperty("BROWSER").equalsIgnoreCase("chrome"))
-			dc = DesiredCapabilities.chrome();
-		
-		if (System.getProperty("HUB_HOST") != null)
-			host=System.getProperty("HUB_HOST");
-		
-		String completeUrl = "http://" + host + ":4444/wd/hub"; */
-		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), dc);
-		
-		e_driver = new EventFiringWebDriver(driver);
-		eventListener = new WebEventListener();
-		e_driver.register(eventListener);
-		driver = e_driver;
-		
-		
-		//driver.manage().window().maximize();
+		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
