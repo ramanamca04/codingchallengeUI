@@ -1,0 +1,14 @@
+<suite name="Alation coding challenge Regression Suite" verbose="1">
+
+	<listeners>
+		<listener class-name="com.alation.ExtentReportListener.ExtentReporterNG" />
+	</listeners>
+	<test name="Alation coding challange" parallel="false" thread-count="1">
+
+		<classes>
+ 			<class name="com.alation.codingchallenge.testcases.HomePageTest" />
+			<class name="com.alation.codingchallenge.testcases.BooksPageTest" />
+		</classes>
+	</test>
+
+</suite>
